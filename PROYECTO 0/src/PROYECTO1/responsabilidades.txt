@@ -1,0 +1,22 @@
+﻿Responsabilidades:
+MARIO: Responsable de modelar los comportamientos  de el personaje principal
+MANUAL:Responsable de establecer una conexión entre el usuario y el movimiento
+ARTIFICIAL:Responsable de  dar movimiento el movimiento propio necesitado.
+JUEGO:Responsable de los controles de juego, es el modulo principal que modelará desde puntajes, hasta acciones de personajes, items ,etc. 
+INTELIGENCIA:Esta clase no tiene responsabilidades
+GOOMBA:Representa el enemigo
+KOOPA TROOPA:Representa el enemigo
+PERSONAJE:Responsable de darle comportamiento y posición a todos los personajes del juego
+ENEMIGO:Esta clase no tiene responsabilidades
+HONGO VERDE:Representa el enemigo
+ENTIDADES:La única responsabilidad de esta clase es darle una forma gráfica a todos los objetos del juego
+BLOQUE:Responsable de modelar el objeto bloque, con todas sus características asi como saber si posee monedas o items.
+POZO:Encargado de llevar las coordenadas de el pozo
+PODER:Modela los movimientos de los poderes
+ESTRELLA:Su única responsabilidad es modelar una estrella, para diferenciarse de los demas
+BOMBA NUCLEAR: Su única responsabilidad es modelar una bomba nuclear, para diferenciarse de los demás
+REPRESENTACION GRAFICA:Esta clase tiene la responsabilidad de mostrar los objetos por pantalla.
+ITEM:Agrupa todos los items, para después diferenciarlos, además se encarga de darles una inteligencia, una posición en el mapa y un puntaje.
+FLOR DE FUEGO:Su única responsabilidad es modelar una flor de fuego, para diferenciarse de los demás
+SUPERHONGO:Su única responsabilidad es modelar un super hongo, para diferenciarse de los demás
+ENTIDADES:Esta clase es responsable de englobar todos los elementos que serán visibles por el usuario, por lo tanto tendrán una representación gráfica.
