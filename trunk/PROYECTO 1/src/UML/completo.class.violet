@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.6.0_23" class="java.beans.XMLDecoder">
+ <object class="com.horstmann.violet.ClassDiagramGraph">
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>#esChiquito:boolean
+#invensible:boolean
+#disparo:boolean
+
+</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;Constructores&gt;&gt;
++Mario()
+&lt;&lt;Metodos&gt;&gt;
++morirse() ++
++MoverseDerecha():void
++MoverseIzquierda():void
++saltar():void
++disparar():PODER
+&lt;&lt;Consultas&gt;&gt;
++esInvensible():boolean
++getNivel():integer
++puedeDisparar():boolean</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>MARIO extends PERSONAJE</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>1336.5143210584708</double>
+     <double>543.680887679709</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>#intel:INTELIGENCIA</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;Metodos&gt;&gt;
++morirse():void *</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>*Personaje extends ENTIDAD</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>1106.4528855298852</double>
+     <double>473.57063453597686</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>#celda:POSICION
+#rep:REPRESENTACION GRAFICA</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;Consultas&gt;&gt;
++getPos():POSICION
++setPos(pos:POSICION);</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>*ENTIDAD</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>1166.7638558497547</double>
+     <double>341.29773588855903</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="name">
+     <void property="text">
+      <string>REPRESENTACION GRAFICA</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>1223.2834046956846</double>
+     <double>191.19090885900994</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="methods">
+     <void property="text">
+      <string>+moverse():void *</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>*ENEMIGO extends PERSONAJE</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>986.7182569445179</double>
+     <double>645.4710789878693</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>#escondida:boolean</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>   &lt;&lt;constructor&gt;&gt;
++KOOPA TROOPA(i :Artificial,rep :REPRESENTACION GRAFICA,pos:POSICION);
+   &lt;&lt;comandos&gt;&gt;
++moverse():void ++
++morirse():void++</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>KOOPA TROOPA extends ENEMIGO</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>1084.3330444827411</double>
+     <double>824.2031021678297</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="methods">
+     <void property="text">
+      <string>   &lt;&lt;constructor&gt;&gt;
++GOOMBA(i :Artificial,rep :REPRESENTACION GRAFICA,pos:POSICION);
+   &lt;&lt;comandos&gt;&gt;
++moverse():void ++
++morirse():void++
+
+</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>GOOMBA extends ENEMIGO</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>634.031529292576</double>
+     <double>818.8893936688448</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>#intel:INTELIGENCIA
+#puntaje:int</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;comandos&gt;&gt;
++moverse():void *
++desaparecer():void; *
+&lt;&lt;consultas&gt;&gt;
++getPuntaje():int;</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>*ITEM extends ENTIDAD</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>230.55721573788122</double>
+     <double>267.5319625684648</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;constructor&gt;&gt;
++HONGO VERDE(i :ARTIFICIA,:POSICION,rep:ANIMADA);
+&lt;&lt;comandos&gt;&gt;
++moverse():void ++
++desaparecer():void ++</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>HONGO VERDE extends ITEM</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>402.5887450304572</double>
+     <double>547.1808075912433</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;constructor&gt;&gt;
++BOMBA NUCLEAR(i :ARTIFICIAL;pos:POSICION,rep:ANIMADA);
+&lt;&lt;comandos&gt;&gt;
++moverse():void ++
++desaparecer():void ++</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>BOMBA NUCLEAR extends ITEM</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>-4.6046894225104325</double>
+     <double>548.451441680693</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;Constructor&gt;&gt;
++FLOR DE FUEGO(i:Artificial,rep:REPRESENTACION GRAFICA,pos:POSICION)
+&lt;&lt;Comandos&gt;&gt;
++moverse():void ++
++desaparecer():void ++</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>FLOR DE FUEGO extends ITEM</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>3.485281374238525</double>
+     <double>699.6639969244287</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="name">
+     <void property="text">
+      <string>AGREGUE:
+POSICION A CONSTRUCTOR DE TODOS LOS ITEMS Y PERSONAJES (ENEMIGOS TAMB)
+METODO * MOVERSE Y DESAPARECER(MORIRSE)
+TOME EL PODER COMO UN ITEM PORQUE TIENE CASI LOS MISMOS ATRIBUTOS
+LE CAMBIE LOS ATRIBUTOS A LAS 
+
+
+---------
+PODRIA: OBVIARSE LA CLASE ENTIDAD Y REDISTRIBUIR LOS METODOS
+PODRIA LA CLASE ENTIDAD TENER LOS METODOS MOVERSE Y DESAPARECER, PERO EL POZO LA CAGA
+EL METODO MOVERSE ES DIFERENTE EN LOS ENEMIGOS QE EN EL MARIO
+DEFINIRSE GENERICAMENTE LA INTELIGENCIA MANUAL</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>1129.3574311003806</double>
+     <double>3.4852813742385678</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;constructor&gt;&gt;
++ESTRELLA(i :ARTIFICIAL , pos:POSICION,rep:REPRESENTACION GRAFICA);
+&lt;&lt;comandos&gt;&gt;
++moverse():void ++
++desaparecer():void ++</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>ESTRELLA extends ITEM</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>4.414213562373078</double>
+     <double>831.8204178980325</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;constructor&gt;&gt;
++SUPERHONGO(i :ARTIFICIAL;pos:POSICION,rep:ANIMADA);
+&lt;&lt;comandos&gt;&gt;
++moverse():void++
++desaparecer():void ++</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>SUPERHONGO extends ITEM</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>500.11060633115505</double>
+     <double>687.1909088590099</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;constructor&gt;&gt;
++POZO(p:POSICION , r :REPRESENTACION GRAFICA);</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>POZO extends ENTIDAD</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>755.0345264844275</double>
+     <double>484.3619297708882</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;constructor&gt;&gt;
++PODER(r: REPRESENTACION GRAFICA , i :MANUAL, p:POSICION)
+&lt;&lt;constructor&gt;&gt;
++moverse():void ++
++desaparecer():void ++</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>PODER extends ITEM</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>186.6626647485271</double>
+     <double>423.59979067585164</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="name">
+     <void property="text">
+      <string>* INTELIGENCIA</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>227.52439698210958</double>
+     <double>39.91648789414653</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>+jug:ENTIDAD</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>     &lt;&lt;constructor&gt;&gt;
++MANUAL(p:MARIO);
+      &lt;&lt;comandos&gt;&gt;
++accion(t :KeyEvent):void;
++setPersonaje(m:MARIO);</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>MANUAL extends INTELIGENCIA</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>45.534550349242835</double>
+     <double>133.58791465242558</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>+jug:ENTIDAD</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string> &lt;&lt;constructor&gt;&gt;
++ARITFICIAL(m:ENEMIGO)
++ARTIFICIAL(i:ITEM)
+&lt;&lt;comandos&gt;&gt;
++moverIzquierda():void;
++moverDerecha():void;</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>ARTIFICIAL extends INTELIGENCIA</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>302.26532848301855</double>
+     <double>121.58846450947377</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>#jugador:MARIO
+#noTraspasables:Coleccion de ENTIDAD
+#malos:Coleccion de ENTIDAD
+#pozos: Coleccion de ENTIDAD
+#poderes:Coleccion de ENTIDAD
+#items: Coleccion de ENTIDAD
+#puntaje :int
+#vidas :int
+#rep :REPRESENTACION GRAFICA</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;constructor&gt;&gt;
++JUEGO(rep :REPRESENTACION GRAFICA);
+&lt;&lt;comandos&gt;&gt;
++iniciarJuego();
++colisionMarioConEnemigos():boolean;
++colisionMarioConItems():boolean;
++colisionMarioConPared():boolean;
++colisionMarioConPozo():boolean;
++esTransitable(x :int,y :int):boolean;
++aumentarPuntos(x:int):void;
++decrementarPuntos(x:int):void;
++aumentarVidas():void;
++decrementarVidas():void;
++matarMario():void;
++matarEnemigo(e:ENEMIGO):void;
++avanzarMapa():void;
++accion(tecla :KeyEvent):void;
++matarTodos():void;</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>JUEGO</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>851.0522336461562</double>
+     <double>18.30845908914882</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>#item:ITEM</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;constructor&gt;&gt;
++BLOQUE(p:POSICION , i :ITEM, r :REPRESENTACION GRAFICA);
+&lt;&lt;comandos&gt;&gt;
++serRoto():void;    
+ &lt;&lt;consultas&gt;&gt;
++tieneItem:boolean;
++getItem():Item;</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>BLOQUE extends ENTIDAD</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>1476.6141051855225</double>
+     <double>363.26725138960455</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.NoteNode">
+    <void property="text">
+     <void property="text">
+      <string>CLASE JUEGO:
+El constructor de el modulo juego,
+inicializa las colecciones de la siguiente manera:
+Items:Coleccion de ITEMS
+poderes:Coleccion de PODER
+pozos:Coleccion de POZO
+malos: Coleccion de ENEMIGO
+noTraspasables:Coleccion de BLOQUE
+
+</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>509.5832276437511</double>
+     <double>279.1776098642332</double>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
