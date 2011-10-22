@@ -40,7 +40,7 @@ public class Juego extends javax.swing.JFrame {
 	protected Movimiento derecha;
 	protected Movimiento saltar;
 	protected JPanel panel;
-	protected Posicion principio;
+	
 	protected Gravedad gravity;
 	private JPanel personajes;
 	protected ListaSE<Entidad> objetos; // OBJETOS CON LOS QUE PUEDE COLISIONAR
@@ -73,7 +73,7 @@ public class Juego extends javax.swing.JFrame {
 		getContentPane().setBackground((new java.awt.Color(128, 255, 255)));
 		control = false;
 		controlUp = false;
-		principio = new Posicion(0, 384);
+		
 
 		objetos = new ListaSE<Entidad>();
 		piso = new ListaSE<Entidad>();
