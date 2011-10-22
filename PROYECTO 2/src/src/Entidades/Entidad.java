@@ -18,7 +18,7 @@ public abstract class Entidad  {
 	protected Borde  borde;//Borde
 	
 	//Constructor
-	public Entidad()
+	protected Entidad()
 	{
 		super();
 	}
