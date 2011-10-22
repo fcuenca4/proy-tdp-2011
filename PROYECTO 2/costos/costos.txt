@@ -1,0 +1,48 @@
+Gastos Rodrigo Camparo
+
+Principales:
+Alquiler		$1.300,00
+Víveres			$1.000,00
+Gastos extra		$500,00
+Ropa			$600,00
+Impuestos		$300,00
+
+A futuro:
+Auto (en 3 años)	$1.500,00
+Notebook (en 12 meses)	$300,00
+Vacaciones (en 12 meses)$750,00
+Ahorro para casa        $500,00
+	
+
+TOTAL GASTOS POR MES: $6750
+TOTAL DE HORAS DE TRABAJO POR DIA: 10Hs
+TOTAL DE HORAS DE TRABAJO POR MES (20 Dias): 200Hs
+
+PRECIO POR HORA: $34
+----------------------------------------------------
+
+Gastos Francisco Cuenca:
+
+Principales:
+Alquiler		$1.400,00
+Víveres			$1.000,00
+Gastos extra		$700,00
+Ropa			$300,00
+Impuestos		$300,00
+
+
+A futuro:
+Moto (en 3 años)	$600,00
+Notebook (en 12 meses)	$350,00
+Viajes (en 12 meses)    $200,00
+Ahorro para Casa        $400,00
+
+TOTAL GASTOS POR MES: $5250
+TOTAL DE HORAS DE TRABAJO POR DIA: 6Hs
+TOTAL DE HORAS DE TRABAJO POR MES (20 Dias): 160Hs
+
+PRECIO POR HORA: $43
+----------------------------------------------------
+
+CANTIDAD DE HORAS TRABAJADAS EN EL PROJECTO EN CONJUNTO: 56Hs
+COSTO FINAL DEL PROJECTO: $4312
