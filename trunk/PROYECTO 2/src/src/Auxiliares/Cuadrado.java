@@ -10,7 +10,7 @@ import Entidades.Mario;
  * */
 public class Cuadrado extends Borde{
 	
-		private Mario jugador;
+		
 		
 		
 		//Constructor

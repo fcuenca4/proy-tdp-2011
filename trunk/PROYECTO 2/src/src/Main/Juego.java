@@ -40,7 +40,6 @@ public class Juego extends javax.swing.JFrame {
 	protected Movimiento derecha;
 	protected Movimiento saltar;
 	protected JPanel panel;
-	
 	protected Gravedad gravity;
 	private JPanel personajes;
 	protected ListaSE<Entidad> objetos; // OBJETOS CON LOS QUE PUEDE COLISIONAR
