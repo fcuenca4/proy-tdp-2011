@@ -1,0 +1,12 @@
+DESICIONES DE DISEÑO
+
+-En la clase Juego dividimos el mapa en dos tipos de entidades,las que representan el piso y la que no,
+con el fin de agilizar algunas búsquedas,por ejemplo para moverse a la derecha mario no necesita saber la
+ubicacion del piso.,en cambio otras clases como gravedad si.
+
+
+-Las colisiones las manejamos con la clase Borde la cual crea un borde lógico al rededor de cada entidad
+y cdo alguna se mueve se actualiza.Para controlas las colisiones se toman en cuenta las coordenadas de estos
+bordes.
+
+
