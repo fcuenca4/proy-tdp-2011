@@ -30,7 +30,7 @@ public class Movimiento extends Thread {
 	public void run() {
 		switch (tecla.getKeyCode()) {
 		case KeyEvent.VK_SPACE: {
-			try {System.out.println(jugador.getPosicion().getX());
+			try {
 				Cuadrado bordeMario=(Cuadrado)jugador.getBorde();
 				boolean control=false;
 				for(Entidad aux:objetos){
