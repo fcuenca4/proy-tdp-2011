@@ -1,0 +1,12 @@
+MARIO: Responsable de modelar los comportamientos  del personaje principal
+ENTIDAD: Responsable darle un borde, una posicion y una representacion a todas las clases que la van a heredar
+PiedraIrrompible:Esta clase modela los bloques que no van a poder ser destruidos por el personaje principal.
+Tubo:Representa un tubo, que es una agrupacion de cuatro tubos con diferentes imagenes.
+Gravedad: Este módulo es responsable de manejar las caidas de todos elementos del juego.
+Movimiento: Es el módulo que va a darle movimiento al personaje principal, tanto lógica como graficamente.
+Posicion: Modela una posicion lógica/gráfica del juego.
+Juego: Es el módulo principal, responsable de crear el mapa y ejecutarlo, asi como tambien de manejar los respectivos oyentes.
+Animada: Es el módulo que se encargará de mostrar gráficamente el movimiento del jugador.
+SpriteAnimado:Encargado de modelar los movimientos de la animacion del personaje.
+Cuadrado: Encargado de manejar las colisiones entre Cuadrados.
+Borde: Encargado de modelar cuatro posiciones enteras, que representaran matemáticamente un borde
