@@ -66,7 +66,7 @@ public class Gravedad extends Thread {
 
 				control = this.intersect(); // CONTROL SI HAY ALGO ABAJO DE
 											// MARIO.
-				Thread.sleep(50);
+				 
 				if (!control) {
 					for (int i = 0; (i < 15) && (!control); i++) {
 
