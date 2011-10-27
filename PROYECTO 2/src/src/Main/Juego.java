@@ -94,28 +94,23 @@ public class Juego extends javax.swing.JFrame {
 			panel.setBounds(8,19, 2300, 500);
 		}
 
-		JLabel castillo = new JLabel(new ImageIcon(getClass().getClassLoader()
-				.getResource("Imagenes/castillo.png")));
+		JLabel castillo = new JLabel(new ImageIcon(getClass().getResource("/Imagenes/castillo.png")));
 		castillo.setBounds(1809, 41, 256, 320);
 		panel.add(castillo);
 
-		JLabel hongo = new JLabel(new ImageIcon(getClass().getClassLoader()
-				.getResource("Imagenes/hongo.gif")));
+		JLabel hongo = new JLabel(new ImageIcon(getClass().getResource("/Imagenes/hongo.gif")));
 		hongo.setBounds(0, 224, 96, 128);
 		panel.add(hongo);
 
-		JLabel arbusto = new JLabel(new ImageIcon(getClass().getClassLoader()
-				.getResource("Imagenes/arbusto.gif")));
+		JLabel arbusto = new JLabel(new ImageIcon(getClass().getResource("/Imagenes/arbusto.gif")));
 		arbusto.setBounds(416, 282, 160, 70);
 		panel.add(arbusto);
 
-		JLabel nube1 = new JLabel(new ImageIcon(getClass().getClassLoader()
-				.getResource("Imagenes/nubes.gif")));
+		JLabel nube1 = new JLabel(new ImageIcon(getClass().getResource("/Imagenes/nubes.gif")));
 		nube1.setBounds(600, 50, 128, 48);
 		panel.add(nube1);
 
-		JLabel nube2 = new JLabel(new ImageIcon(getClass().getClassLoader()
-				.getResource("Imagenes/nubes.gif")));
+		JLabel nube2 = new JLabel(new ImageIcon(getClass().getResource("/Imagenes/nubes.gif")));
 		nube2.setBounds(1400, 50, 128, 48);
 		panel.add(nube2);
 
@@ -125,9 +120,9 @@ public class Juego extends javax.swing.JFrame {
 			Entidad piso = new PiedraIrrompible(i, 352);
 			JLabel label = piso.getLabel();
 			JLabel label1 = new JLabel(new ImageIcon(getClass()
-					.getClassLoader().getResource("Imagenes/bloque.gif")));
+					.getResource("/Imagenes/bloque.gif")));
 			JLabel label2 = new JLabel(new ImageIcon(getClass()
-					.getClassLoader().getResource("Imagenes/bloque.gif")));
+					.getResource("/Imagenes/bloque.gif")));
 			label.setBounds(i, 352, 32, 32);
 			label1.setBounds(i, 384, 32, 32);
 			label2.setBounds(i, 416, 32, 32);
@@ -143,9 +138,9 @@ public class Juego extends javax.swing.JFrame {
 			Entidad piso = new PiedraIrrompible(i, 352);
 			JLabel label = piso.getLabel();
 			JLabel label1 = new JLabel(new ImageIcon(getClass()
-					.getClassLoader().getResource("Imagenes/bloque.gif")));
+					.getResource("/Imagenes/bloque.gif")));
 			JLabel label2 = new JLabel(new ImageIcon(getClass()
-					.getClassLoader().getResource("Imagenes/bloque.gif")));
+					.getResource("/Imagenes/bloque.gif")));
 			label.setBounds(i, 352, 32, 32);
 			label1.setBounds(i, 384, 32, 32);
 			label2.setBounds(i, 416, 32, 32);
@@ -162,9 +157,9 @@ public class Juego extends javax.swing.JFrame {
 			Entidad piso = new PiedraIrrompible(i, 352);
 			JLabel label = piso.getLabel();
 			JLabel label1 = new JLabel(new ImageIcon(getClass()
-					.getClassLoader().getResource("Imagenes/bloque.gif")));
+					.getResource("/Imagenes/bloque.gif")));
 			JLabel label2 = new JLabel(new ImageIcon(getClass()
-					.getClassLoader().getResource("Imagenes/bloque.gif")));
+					.getResource("/Imagenes/bloque.gif")));
 			label.setBounds(i, 352, 32, 32);
 			label1.setBounds(i, 384, 32, 32);
 			label2.setBounds(i, 416, 32, 32);
