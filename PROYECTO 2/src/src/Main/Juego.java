@@ -69,7 +69,7 @@ public class Juego extends javax.swing.JFrame {
 	private void initGUI() {
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
-		getContentPane().setBackground((new java.awt.Color(128, 255, 255)));
+	 	getContentPane().setBackground((new java.awt.Color(128, 255, 255)));
 		control = false;
 		controlUp = false;
 		
@@ -239,9 +239,10 @@ public class Juego extends javax.swing.JFrame {
 					if ((!control) && (jugador.getPosicion().getY() <= 320)) {
 						control = true;
 						if (izquierda == null) {
-							jugador.izquierda();
+							
 							izquierda = new Movimiento(panel, evt, jugador,
 									gravity, objetos);
+							jugador.izquierda();
 							izquierda.start();
 						}
 						break;
@@ -252,10 +253,11 @@ public class Juego extends javax.swing.JFrame {
 						control = true;
 						if (derecha == null) {
 							
-								jugador.derecha();
+								
 							
 							derecha = new Movimiento(panel, evt, jugador,
 									gravity, objetos);
+							jugador.derecha();
 							derecha.start();
 						}
 						break;
