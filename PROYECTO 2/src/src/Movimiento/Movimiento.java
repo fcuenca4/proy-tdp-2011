@@ -40,15 +40,19 @@ public class Movimiento extends Thread {
 						break;
 					}
 				}
+				Thread.sleep(50);
 				if(!control){
 				gravedad.suspend();
 				jugador.setEstaSaltando(true);	
 				JLabel label = jugador.getLabel();
 				for (int i = 0; i < 15 && !control; i++) {
-					jugador.setBorde(jugador.getBorde().getX1(), jugador
-							.getBorde().getY1() - 8);
+					
 					label.setLocation(label.getLocation().x,
 							label.getLocation().y - 8);
+					jugador.setEstaSaltando(true);
+					jugador.setBorde(jugador.getBorde().getX1(), jugador
+							.getBorde().getY1() - 8);
+					
 					jugador.setPosicion(jugador.getPosicion().getX(), jugador
 							.getPosicion().getY() - 8);
 					
@@ -96,7 +100,7 @@ public class Movimiento extends Thread {
 						jugador.getLabel().repaint();
 
 					}
-					Thread.sleep(30);
+					Thread.sleep(20);
 					
 				} catch (Exception e) {
 				}
@@ -132,7 +136,7 @@ public class Movimiento extends Thread {
 
 					}
 
-					Thread.sleep(30);
+					Thread.sleep(20);
 					
 				}
 				
