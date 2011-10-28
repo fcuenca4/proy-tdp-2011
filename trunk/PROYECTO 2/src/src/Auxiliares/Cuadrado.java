@@ -20,6 +20,7 @@ public class Cuadrado extends Borde{
 		this.y1=y;
 		this.x2=x+32;
 		this.y2=y+32;
+
 		
 	}
 	
@@ -75,7 +76,7 @@ public class Cuadrado extends Borde{
 		if(  (x1==this.x2) && (y1==this.y1) && (y2==this.y2)) {return true;}   //PARA EL CASO EN QUE MARIO ESTE EXACTAMENTE AL LADO DEL OBJETO
 		if(  (this.x2==x1) && (this.y1>y1) && (this.y1<y2) && (this.y2>y2) ) {return true;}     //PARA EL CASO EN QUE MARIO ESTE EXACTAMENTE AL LADO DEL OBJETO PERO UN POQUITO MAS ABAJO
 		if(  (this.x2==x1) && (this.y1<y1) && (this.y2<y2) && (this.y2>y1) ) {return true;}     //PARA EL CASO EN QUE MARIO ESTE EXACTAMENTE AL LADO DEL OBJETO PERO UN POQUITO MAS ARRIBA
-	
+	    
 		
 		return false;
 	}
