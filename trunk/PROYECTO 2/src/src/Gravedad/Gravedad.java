@@ -57,7 +57,7 @@ public class Gravedad extends Thread {
 
 		while (true) {
 			try {
-
+				
 				Cuadrado bordeMario = (Cuadrado) jugador.getBorde();
 				JLabel label = jugador.getLabel();
 
@@ -69,6 +69,7 @@ public class Gravedad extends Thread {
 				Thread.sleep(30); 
 				
 				if (!control) {
+					
 					for (int i = 0; (i < 15) && (!control); i++) {
 
 						jugador.setEstaSaltando(true);

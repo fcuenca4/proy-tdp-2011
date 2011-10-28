@@ -20,7 +20,7 @@ public class PiedraIrrompible extends Entidad {
 		imagen=new ImageIcon(getClass().getResource("/Imagenes/bloque.gif"));
 		this.label=new JLabel(imagen);
 		label.setBounds(i,j,32,32);
-		this.borde=new Cuadrado(i,j);
+		this.borde=new Cuadrado(i,j,null);
 			
 		
 	}

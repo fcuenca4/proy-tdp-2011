@@ -48,7 +48,7 @@ public class Mario extends Entidad {
 		this.label.setBackground(new java.awt.Color(128, 255, 255));
 		label.setIcon(imagen);
 		label.setBounds(i,j,60,50);
-		this.borde=new Cuadrado(i,j);
+		this.borde=new Cuadrado(i,j,this);
 		this.movimiento=new Animada(this);
 		movimiento.start();
 		
