@@ -5,7 +5,7 @@ import javax.swing.JLabel;
 import Auxiliares.*;
 import Posicion.Posicion;
 
-
+//Esta clase representa un tubo en el juego
 
 
 public class Tubo extends Entidad {
@@ -25,7 +25,7 @@ public class Tubo extends Entidad {
                 }
                 this.label=new JLabel(imagen);
                 label.setBounds(i,j,32,32);
-                this.borde=new Cuadrado(i,j,null);
+                this.borde=new Cuadrado(i,j,null,32,32);
                 
         }
         

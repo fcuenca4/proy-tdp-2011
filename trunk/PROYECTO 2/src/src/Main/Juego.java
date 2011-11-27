@@ -1,24 +1,30 @@
 package Main;
 
-import java.awt.event.KeyAdapter; 
-import java.awt.event.KeyEvent;
-import java.io.IOException;
 
-import javax.swing.ImageIcon;
+
+import java.awt.BorderLayout;
+import java.awt.event.KeyAdapter;      
+import java.awt.event.KeyEvent;
+
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
-import Entidades.Entidad;
-import Entidades.Mario;
-import Entidades.PiedraIrrompible;
-import Entidades.Tubo;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
+import Generador.*;
+import Auxiliares.PanelDetalles;
+import Entidades.*;
 import Estructuras.ListaSE;
 import Gravedad.Gravedad;
-import Movimiento.Movimiento;
-import Posicion.Posicion;
+import Movimiento.*;
+
+
+
+
+
 
 /**
  * This code was edited or generated using CloudGarden's Jigloo SWT/Swing GUI
@@ -32,37 +38,66 @@ import Posicion.Posicion;
  */
 public class Juego extends javax.swing.JFrame {
 
-	protected Mario jugador;
-
-	protected boolean control;
-	protected boolean controlUp;
-	protected Movimiento izquierda;
-	protected Movimiento derecha;
-	protected Movimiento saltar;
-	protected JPanel panel;
-	protected Gravedad gravity;
-	private JPanel personajes;
-	protected ListaSE<Entidad> objetos; // OBJETOS CON LOS QUE PUEDE COLISIONAR
-										// POR UN COSTADO
-	protected ListaSE<Entidad> piso;
-
+	protected SplashScreen splash;   //Splah screen.
+	protected Mario jugador;		//Personaje principal del juego,Mario.
+	protected Audio musica;			//Controla el audio del juego
+	protected boolean control;		//Auxiliar
+	protected boolean controlUp;	//Auxiliar
+	
+	protected MovimientoManual izquierda;		//Hilo que hace mover a Mario para la izquierda
+	protected MovimientoManual derecha;			//Hilo que hace mover a Mario para la derecha
+	protected Salto saltar;						//Hilo que hace saltar a Mario
+	protected Gravedad gravity;					//Hilo que hace caer a Mario 
+	
+	
+	protected PanelDetalles panel;				//Panel donde se dibuja el cuerpo del mapa(tubos,bloques,nubes,piso)
+	private JPanel personajes;					//Panel donde se encuentra Mario y las etiquetas de las vidas y puntos
+	private JPanel enemigos;					//Panel donde se encuentran los enemigos
+	protected JLabel puntos;					//Etiqueta
+	protected JLabel vidas;						//Etiqueta
+	
+	
+	protected ListaSE<Entidad> objetos; 	//Almacena los objetos logicos que solo ocupan lugar(tubos,bloques)
+	protected ListaSE<Malo> malos;			//Almacena a los enemigos
+	protected ListaSE<Entidad> piso;		//Almacena los objetos logicos que componen el piso.
+	protected ListaSE<Item> items;			//Almacena a los items
+	protected ListaSE<Entidad> limitadores;  //Indican los limites que tienen los enemigos para caminar.
+	protected ListaSE<BolaDeFuego> disparos;	//Almacena los disparos que realiza Mario
+	
+	
+	
+	
 	public static void main(String[] args) {
+		
+        SplashScreen splash = new SplashScreen(5000);
+       splash.showSplash();
 
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
+				 
+		        
+				 
 				Juego inst = new Juego();
 				inst.setLocationRelativeTo(null);
 				inst.setVisible(true);
+				
 			}
 		});
 	}
 
 	public Juego() {
 		super();
+		 
+        
+		 
 
 		control = false;
 		controlUp = false;
-
+		
+		//Inicio la musica
+		musica=new Audio("/Imagenes/musica.mid");
+		musica.reproducir(50);
+		
 		initGUI();
 	}
 
@@ -74,122 +109,116 @@ public class Juego extends javax.swing.JFrame {
 		controlUp = false;
 		
 
+
 		objetos = new ListaSE<Entidad>();
+		malos= new ListaSE<Malo>();
 		piso = new ListaSE<Entidad>();
+		items=new ListaSE<Item>();
+		disparos=new ListaSE<BolaDeFuego>();
+		limitadores=new ListaSE<Entidad>();
+
+			
+				
+		
+			
+		
+		
+		
 		{
 			personajes = new JPanel();
 			getContentPane().add(personajes, "Center");
 			personajes.setLayout(null);
 			personajes.setOpaque(false);
-			personajes.setBounds(0,0, 2300, 500);
+			personajes.setBounds(0,0, 5000, 510);
+			JLabel etiqueta1=new JLabel("MARIO x");
+			etiqueta1.setFont(new java.awt.Font("Tahoma", 1, 11));
+			etiqueta1.setForeground(new java.awt.Color(255, 255, 255));
+			etiqueta1.setBounds(30, 10, 60, 20);
+			
+			
+			this.vidas=new  JLabel("1");
+			this.vidas.setFont(new java.awt.Font("Tahoma", 1, 11));
+			this.vidas.setForeground(new java.awt.Color(255, 255, 255));
+			vidas.setBounds(90,10,100,20);	
+			
+			this.puntos=new JLabel("00");
+			this.puntos.setFont(new java.awt.Font("Tahoma", 1, 11));
+			this.puntos.setForeground(new java.awt.Color(255, 255, 255));
+			
+			puntos.setBounds(140,10,100,20);
+					
+			personajes.add(puntos);
+			personajes.add(etiqueta1);
+			personajes.add(vidas);
 
 		}
+		
+		
+		
+		personajes.setBounds(0,0, 512,490);
+		personajes.setOpaque(false);
+		
+		
+		
+		
+		
+		{
+			enemigos= new JPanel();
+			getContentPane().add(enemigos, "Center");
+			enemigos.setLayout(null);
+			enemigos.setOpaque(false);
+			enemigos.setBounds(0,0, 5000, 510);
+
+		}
+		
+		
 
 		{
-			panel = new JPanel();
+			panel = new PanelDetalles();
+			
 			getContentPane().add(panel, "Center");
 			panel.setLayout(null);
 			panel.setBackground(new java.awt.Color(128, 255, 255));
 			panel.setPreferredSize(new java.awt.Dimension(388, 264));
-			panel.setBounds(8,19, 2300, 500);
+			panel.setBounds(0,0, 5000, 500);
 		}
-
-		JLabel castillo = new JLabel(new ImageIcon(getClass().getResource("/Imagenes/castillo.png")));
-		castillo.setBounds(1809, 41, 256, 320);
-		panel.add(castillo);
-
-		JLabel hongo = new JLabel(new ImageIcon(getClass().getResource("/Imagenes/hongo.gif")));
-		hongo.setBounds(0, 224, 96, 128);
-		panel.add(hongo);
-
-		JLabel arbusto = new JLabel(new ImageIcon(getClass().getResource("/Imagenes/arbusto.gif")));
-		arbusto.setBounds(416, 282, 160, 70);
-		panel.add(arbusto);
-
-		JLabel nube1 = new JLabel(new ImageIcon(getClass().getResource("/Imagenes/nubes.gif")));
-		nube1.setBounds(600, 50, 128, 48);
-		panel.add(nube1);
-
-		JLabel nube2 = new JLabel(new ImageIcon(getClass().getResource("/Imagenes/nubes.gif")));
-		nube2.setBounds(1400, 50, 128, 48);
-		panel.add(nube2);
-
-		// CREO EL PISO.
-
-		for (int i = 0; i < 864; i = i + 32) {
-			Entidad piso = new PiedraIrrompible(i, 352);
-			JLabel label = piso.getLabel();
-			JLabel label1 = new JLabel(new ImageIcon(getClass()
-					.getResource("/Imagenes/bloque.gif")));
-			JLabel label2 = new JLabel(new ImageIcon(getClass()
-					.getResource("/Imagenes/bloque.gif")));
-			label.setBounds(i, 352, 32, 32);
-			label1.setBounds(i, 384, 32, 32);
-			label2.setBounds(i, 416, 32, 32);
-			panel.add(label);
-			panel.add(label1);
-			panel.add(label2);
-			this.piso.addLast(piso);
-
-		}
-		// CREO EL POZO IMPLICITAMENTE
-
-		for (int i = 928; i < 1632; i = i + 32) {
-			Entidad piso = new PiedraIrrompible(i, 352);
-			JLabel label = piso.getLabel();
-			JLabel label1 = new JLabel(new ImageIcon(getClass()
-					.getResource("/Imagenes/bloque.gif")));
-			JLabel label2 = new JLabel(new ImageIcon(getClass()
-					.getResource("/Imagenes/bloque.gif")));
-			label.setBounds(i, 352, 32, 32);
-			label1.setBounds(i, 384, 32, 32);
-			label2.setBounds(i, 416, 32, 32);
-			panel.add(label);
-			panel.add(label1);
-			panel.add(label2);
-			this.piso.addLast(piso);
-
-		}
-
-		// CREO EL POZO IMPLICITAMENTE
-
-		for (int i = 1696; i <= 2300; i = i + 32) {
-			Entidad piso = new PiedraIrrompible(i, 352);
-			JLabel label = piso.getLabel();
-			JLabel label1 = new JLabel(new ImageIcon(getClass()
-					.getResource("/Imagenes/bloque.gif")));
-			JLabel label2 = new JLabel(new ImageIcon(getClass()
-					.getResource("/Imagenes/bloque.gif")));
-			label.setBounds(i, 352, 32, 32);
-			label1.setBounds(i, 384, 32, 32);
-			label2.setBounds(i, 416, 32, 32);
-			panel.add(label);
-			panel.add(label1);
-			panel.add(label2);
-			this.piso.addLast(piso);
-
-		}
-
-		crearTuboChico(320, 320);
-		crearTuboGrande(640, 320);
-		crearTuboGrande(1000, 320);
-		crearTuboGrande(1520, 320);
-		crearBloque(1240, 224);
-		crearBloque(1272, 224);
-		crearBloque(1304, 224);
-		crearBloque(1336, 224);
-
-		jugador = new Mario(96, 320);
-		JLabel etiq_jugador = jugador.getLabel();
-		etiq_jugador.setOpaque(false);
-		personajes.add(etiq_jugador);
-
-		gravity = new Gravedad(jugador, objetos, piso);
+		
+		
+		//MARIO
+				jugador = new Mario(160,392,piso,objetos,malos,items,this,vidas,puntos);
+				JLabel etiq_jugador = jugador.getLabel();
+				etiq_jugador.setOpaque(false);
+				
+				personajes.add(etiq_jugador);
+		
+				
+				
+				
+		
+		
+	
+		
+		
+		
+		
+			
+		
+		
+	
+		
+		Generador gen=new Generador(jugador, objetos, malos, piso,items,disparos,limitadores,enemigos,puntos,vidas);
+		gen.nivel1();
+		
+		
+			
+		gravity = new Gravedad(jugador,1);
 		gravity.start();
+
+	
 
 		pack();
 
-		this.setSize(512, 490);
+		this.setSize(512, 510);
 
 		addKeyListener(new KeyAdapter() {
 			public void keyReleased(KeyEvent evt) {
@@ -227,21 +256,28 @@ public class Juego extends javax.swing.JFrame {
 					if ((!controlUp) && (!jugador.getEstaSaltando())) {
 						control = false;
 						controlUp = true;
-						saltar = new Movimiento(panel, evt, jugador, gravity,
-								objetos);
+						saltar = new Salto(gravity,jugador);
 						saltar.start();
 
 					}
 					break;
 				}
+				case KeyEvent.VK_Z: {
+					if(jugador.esPoderoso()){
+					BolaDeFuego bola=new BolaDeFuego(jugador,objetos,malos,enemigos);
+					disparos.addLast(bola);}
+					break;
+				}
+				
+				
 
 				case KeyEvent.VK_LEFT: {
-					if ((!control) && (jugador.getPosicion().getY() <= 320)) {
+					if ((!control) /*&& (jugador.getPosicion().getY() <= 320)*/) {
 						control = true;
 						if (izquierda == null) {
 							
-							izquierda = new Movimiento(panel, evt, jugador,
-									gravity, objetos);
+							izquierda = new MovimientoManual(enemigos,panel, evt, jugador,
+									gravity);
 							jugador.izquierda();
 							izquierda.start();
 						}
@@ -255,8 +291,8 @@ public class Juego extends javax.swing.JFrame {
 							
 								
 							
-							derecha = new Movimiento(panel, evt, jugador,
-									gravity, objetos);
+							derecha = new MovimientoManual(enemigos,panel, evt, jugador,
+									gravity);
 							jugador.derecha();
 							derecha.start();
 						}
@@ -264,6 +300,8 @@ public class Juego extends javax.swing.JFrame {
 
 					}
 				}
+				
+				
 				}
 			}
 
@@ -272,70 +310,19 @@ public class Juego extends javax.swing.JFrame {
 		);
 
 	}
-
-	private void crearTuboChico(int x, int y) {
-		Entidad t1 = new Tubo(x, y,1);
-		JLabel etiq_t1 = t1.getLabel();
-		panel.add(etiq_t1);
-		objetos.addLast(t1);
-
-		Entidad t2 = new Tubo(x + 32, y,2);
-		JLabel etiq_t2 = t2.getLabel();
-		panel.add(etiq_t2);
-		objetos.addLast(t2);
-
-		Entidad t3 = new Tubo(x, y - 32,3);
-		JLabel etiq_t3 = t3.getLabel();
-		panel.add(etiq_t3);
-		objetos.addLast(t3);
-
-		Entidad t4 = new Tubo(x + 32, y - 32,4);
-		JLabel etiq_t4 = t4.getLabel();
-		panel.add(etiq_t4);
-		objetos.addLast(t4);
-
+	/**
+	 * Lleva al jugador al principio del juego por haber perdido una vida.
+	 */
+	
+	public void reiniciar()
+	{
+		jugador.setChiquito();
+		jugador.setBorde(160,384);
+		jugador.getLabel().setLocation(160,384);
+		jugador.setPosicion(160,384);
+		panel.setLocation(0,0);
+		enemigos.setLocation(0,0);
 	}
 
-	private void crearTuboGrande(int x, int y) {
-		Entidad t1 = new Tubo(x, y,1);
-		JLabel etiq_t1 = t1.getLabel();
-		panel.add(etiq_t1);
-		objetos.addLast(t1);
-
-		t1 = new Tubo(x, y - 32,1);
-		etiq_t1 = t1.getLabel();
-		panel.add(etiq_t1);
-		objetos.addLast(t1);
-
-		Entidad t2 = new Tubo(x + 32, y,2);
-		JLabel etiq_t2 = t2.getLabel();
-		panel.add(etiq_t2);
-		objetos.addLast(t2);
-
-		t2 = new Tubo(x + 32, y - 32,2);
-		etiq_t2 = t2.getLabel();
-		panel.add(etiq_t2);
-		objetos.addLast(t2);
-
-		Entidad t3 = new Tubo(x, y - 64,3);
-		JLabel etiq_t3 = t3.getLabel();
-		panel.add(etiq_t3);
-		objetos.addLast(t3);
-
-		Entidad t4 = new Tubo(x + 32, y - 64,4);
-		JLabel etiq_t4 = t4.getLabel();
-		panel.add(etiq_t4);
-		objetos.addLast(t4);
-
-	}
-
-	private void crearBloque(int x, int y) {
-		Entidad piso = new PiedraIrrompible(x, y);
-		JLabel label = piso.getLabel();
-		label.setBounds(x, y, 32, 32);
-		panel.add(label);
-		objetos.addLast(piso);
-
-	}
 
 }
