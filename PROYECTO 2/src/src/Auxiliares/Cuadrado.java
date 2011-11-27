@@ -11,16 +11,20 @@ import Entidades.Mario;
 public class Cuadrado extends Borde{
 	
 	private Mario jugador;
+	private int ancho;
+	private int alto;
 		
 		
 		
 		//Constructor
-	public Cuadrado(int x,int y,Mario ju)
+	public Cuadrado(int x,int y,Mario ju,int ancho,int alto)
 	{
+		this.ancho=ancho;
+		this.alto=alto;
 		this.x1=x;
 		this.y1=y;
-		this.x2=x+32;
-		this.y2=y+32;
+		this.x2=x+ancho;
+		this.y2=y+alto;
 		this.jugador=ju;
 
 		
@@ -31,9 +35,9 @@ public class Cuadrado extends Borde{
 	public void setPosicion(int x,int y)
 	{
 		this.x1=x;
-		this.x2=x+32;
+		this.x2=x+ancho;
 		this.y1=y;
-		this.y2=y+32;
+		this.y2=y+alto;
 	}
 	
 	
@@ -70,13 +74,16 @@ public class Cuadrado extends Borde{
 	 * @param Cuadrado c	
 	 */
 	public boolean colisionaPorDerecha(Cuadrado c)
-	{
+	{if(c==null){return false;}
 		int y1=c.getY1();
 		int y2=c.getY2();
 		int x1=c.getX1();
 		int x2=c.getX2();
-		if( (this.jugador.getEstaSaltando()) && (this.x2==x1) && (this.y1<y1) && (this.y2<y2) && (this.y2>=y1) ) {return true;} //PARA EL CASO QUE ESTE SALTANDO QUE TRASPASE LOS VERTICES
-		if(  (x1==this.x2) && (y1==this.y1) && (y2==this.y2)) {return true;}   //PARA EL CASO EN QUE MARIO ESTE EXACTAMENTE AL LADO DEL OBJETO
+		if(jugador!=null)if( (this.jugador.getEstaSaltando()) && (this.x2==x1) && (this.y1<y1) && (this.y2<y2) && (this.y2==y1) ) {return true;} //PARA EL CASO QUE ESTE SALTANDO QUE TRASPASE LOS VERTICES
+		if(  (x1==this.x2) && (y1==this.y1)) {return true;}   //PARA EL CASO EN QUE MARIO ESTE EXACTAMENTE AL LADO DEL OBJETO
+		if(  (x1==this.x2) && (y2==this.y2)) {return true;}   //PARA EL CASO EN QUE MARIO ESTE EXACTAMENTE AL LADO DEL OBJETO
+	
+		if(  (this.x2==x1) && (this.y1<y1) && (this.y2>y2)) {return true;}	//PARA EL CASO EN QUE SUPER MARIO ESTE EXACTAMENTE AL LADO DEL OBJETO
 		if(  (this.x2==x1) && (this.y1>y1) && (this.y1<y2) && (this.y2>y2) ) {return true;}     //PARA EL CASO EN QUE MARIO ESTE EXACTAMENTE AL LADO DEL OBJETO PERO UN POQUITO MAS ABAJO
 		if(  (this.x2==x1) && (this.y1<y1) && (this.y2<y2) && (this.y2>y1) ) {return true;}     //PARA EL CASO EN QUE MARIO ESTE EXACTAMENTE AL LADO DEL OBJETO PERO UN POQUITO MAS ARRIBA
 	    
@@ -90,7 +97,7 @@ public class Cuadrado extends Borde{
 	 * @param Borde c	
 	 */
 	public boolean colisionaPorAbajo(Cuadrado c)
-	{
+	{if(c==null){return false;}
 		int y1=c.getY1();
 		int y2=c.getY2();
 		int x1=c.getX1();
@@ -108,13 +115,17 @@ public class Cuadrado extends Borde{
 	 * @param Borde c	
 	 */
 	public boolean colisionaPorIzquierda(Cuadrado c)
-	{
+	{if(c==null){return false;}
 		int y1=c.getY1();
 		int y2=c.getY2();
 		int x1=c.getX1();
 		int x2=c.getX2();
-		if( (this.jugador.getEstaSaltando()) && (this.x1==x2) && (this.y1<y1) && (this.y2>=y1) && (this.y2<y2) ) {return true;}  //PARA EL CASO QUE ESTE SALTANDO QUE TRASPASE LOS VERTICES
-		if( (this.x1==x2) && (this.y1==y1) && (this.y2==y2) ) {return true;}  //PARA EL CASO EN QUE MARIO ESTE EXACTAMENTE A LA IZQUIERDA DEL OBJETO
+		if(jugador!=null)if( (this.jugador.getEstaSaltando()) && (this.x1==x2) && (this.y1<y1) && (this.y2>=y1) && (this.y2<y2) ) {return true;}  //PARA EL CASO QUE ESTE SALTANDO QUE TRASPASE LOS VERTICES
+		if( (this.x1==x2) && (this.y1==y1)) {return true;}  //PARA EL CASO EN QUE MARIO ESTE EXACTAMENTE A LA IZQUIERDA DEL OBJETO
+		if(  (x2==this.x1) && (y2==this.y2)) {return true;}   //PARA EL CASO EN QUE MARIO ESTE EXACTAMENTE AL LADO DEL OBJETO
+		
+		
+		if(  (this.x1==x2) && (this.y1<y1) && (this.y2>y2)) {return true;}	//PARA EL CASO EN QUE SUPER MARIO ESTE EXACTAMENTE AL LADO DEL OBJETO
 		if( (this.x1==x2) && (this.y1<y1) && (this.y2>y1) && (this.y2<y2) ) {return true;} //PARA EL CASO EN QUE MARIO ESTE EXACTAMENTE A LA IZQUIERDA DEL OBJETO PERO UN POQUITO MAS ARRIBA
 		if( (this.x1==x2) && (this.y2>y2) && (this.y1>y1) && (this.y1<y2) ) {return true;} //PARA EL CASO EN QUE MARIO ESTE EXACTAMENTE A LA IZQUIERDA DEL OBJETO PERO UN POQUITO MAS ABAJO
 		

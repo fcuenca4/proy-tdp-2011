@@ -1,4 +1,5 @@
 package Cuerpo;
+import Entidades.*;
 import Entidades.Mario;
 import javax.swing.JLabel;
 
@@ -11,15 +12,16 @@ import javax.swing.JLabel;
 
 public class Animada extends Thread {
 	
-	private Mario mario;  //Personaje Principal
+	private Entidad entidad;  //Personaje Principal
 	private JLabel label;   //Personaje Principal
-	
+	private int control;    //1 Mario ;2 Koopa Troopa
 	
 	//constructor
-	public Animada(Mario m)
+	public Animada(Entidad m,int c)
 	{	
-		this.mario=m;
+		this.entidad=m;
 		this.label=m.getLabel();
+		this.control=c;
 	}
 	
 	/**
@@ -32,7 +34,8 @@ public class Animada extends Thread {
 		{
 			try
 			{
-				label.setIcon(mario.getActual().obtenerImagen());
+				if(control==1){label.setIcon(((Mario)entidad).getActual().obtenerImagen());}
+				else{label.setIcon(((KoopaTroopa)entidad).getActual().obtenerImagen());}
 				Thread.sleep(90);
 			}
 			catch( Exception e )
