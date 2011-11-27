@@ -1,0 +1,1037 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.6.0_23" class="java.beans.XMLDecoder">
+ <object class="com.horstmann.violet.ClassDiagramGraph">
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>splash : SplashScreen
+jugador : Mario
+musica : Audio
+control : boolean
+controlUp : boolean
+izquierda : MovimientoManual
+derecha : MovimientoManual
+saltar : Salto
+panel : PanelDetalles
+gravity : Gravedad
+personajes : JPanel
+enemigos : JPanel
+objetos : ListaSE&lt;Entidad&gt;
+malos : ListaSE&lt;Malo&gt;
+piso : ListaSE&lt;Entidad&gt;
+items : ListaSE&lt;Item&gt;
+limitadores : Coleccion de Entidad
+disparos : Coleccion de BolaDeFuego
+puntos : JLabel
+vidas : JLabel
+</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;Constructor&gt;&gt;
++Juego()
+&lt;&lt;Comandos&gt;&gt;
++main():void
+-initGUI():void
++reiniciar():void
+
+</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>JUEGO</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>1196.3300858899106</double>
+     <double>3.8406204335659595</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>	# label:JLabel
+	#pos:Posicion
+	#borde:Borde
+	# objetos:Coleccion de Entidad	
+	# piso:Coleccion de Entidad;	
+	#malos:Coleccion de Malo; 
+	#  items:Coleccion de Item;
+</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;constructor&gt;&gt;
+#Entidad();
+&lt;&lt;comandos&gt;&gt;
++setPosicion(int i, int j):void;
++setBorde(int i, int j):void
+&lt;&lt;consultas&gt;&gt;
++getPosicion():Posicion;
++getBorde():Borde;
++getLabel():JLabel;
++getItems():Coleccion de Items
++getObjetos():Coleccion de Entidad
++getMalos():Coleccion de Malos
++getPiso():Coleccion de Entidad</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>*ENTIDAD</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>941.0554149121089</double>
+     <double>77.2672464455635</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>-x:entero;
+-y:entero</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;constructor&gt;&gt;
++Posicion(int i,int j);
+&lt;&lt;comandos&gt;&gt;
++setX():entero;
++setY():entero;
+&lt;&lt;consultas&gt;&gt;
++getX():entero;
++getY():entero;
++equals::boolean;
+</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>POSICION</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>1375.5300029405214</double>
+     <double>253.45568035005857</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>-x1:entero;
+-x2:entero;
+-y1:entero;
+-y2:entero;</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>+setPosicion(int x,int y):void;*
++getX1():entero;*
++getX2():entero;*
++getY1():entero;*
++getY2():entero;*
+
+
+
+
+</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>*BORDE</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>121.62236636408613</double>
+     <double>41.01219330881979</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>-finish:boolean  
+-mirandoIzquierda:boolean 
+-mirandoDerecha:boolean
+-estaQuieto : boolean
+-estaSaltando : boolean
+-actual : SpriteAnimado
+-anterior : SpriteAnimado
+-quieto : SpriteAnimado
+-quietoIzq : SpriteAnimado
+-derecha : SpriteAnimado
+-izquierda : SpriteAnimado
+-salto : SpriteAnimado
+-quietoDerechaGrande : SpriteAnimado
+-quietoIzquierdaGrande : SpriteAnimado
+-quietoIzquierdaPoderoso : SpriteAnimado
+-quietoDerechaPoderoso : SpriteAnimado
+-derechaGrande : SpriteAnimado
+-izquierdaGrande : SpriteAnimado
+-derechaPoderoso : SpriteAnimado
+-izquierdaPoderoso : SpriteAnimado
+-muerto : SpriteAnimado
+-invencibleChiquitoQuietoD : SpriteAnimado
+-invencibleChiquitoQuietoI : SpriteAnimado
+-invencibleGrandeQuietoD : SpriteAnimado
+-invencibleGrandeQuietoI : SpriteAnimado
+-invencibleChiquitoI : SpriteAnimado
+-invencibleChiquitoD : SpriteAnimado
+-invencibleGrandeI : SpriteAnimado
+-invencibleGrandeD : SpriteAnimado
+-estaMuerto : boolean
+-movimiento : Animada
+-esChiquito : boolean
+-esGrande : boolean
+-esInmortal : boolean
+-esPoderoso : boolean
+-vidas : int
+-juego : Juego
+-etiq_vidas : JLabel
+-etiq_puntos : JLabel</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;constructor&gt;&gt;
+public Mario(int i, int j, Coleccion de Entidad piso, Coleccion de Entidad objetos,
+			Coleccion de Malo malos, Coleccion de Item items,Juego juego,JLabel etiq_vidas,JLabel etiq_puntos)
+&lt;&lt;comandos&gt;&gt;
++setBorde(int i, int j):void
++setEstaSaltando(boolean b):void
++setChiquito():void
++setGrande():void
++setInmortal():void
++setPoderoso():void
++setMuerto(boolean e):void
++derecha():void
++izquierda():void
++quieto():void
++quietoI():void
++saltar():void
++morir():void
++finalizar():void
++aumentarVida():void
++decrementarVida():void
++aumentarPuntos(int n):void
++decrementarPuntos(int n):void
++setFinish(boolean):void
+&lt;&lt;Consultas&gt;&gt;
++getEstaSaltando():boolean
++getActual():SpriteAnimado
++esChiquito():boolean
++esGrande():boolean
++esPoderoso():boolean
++esInmortal():boolean
++estaMuerto():boolean
++mirandoIzquierda():boolean
++getFinish():boolean</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>MARIO</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>2286.681277706947</double>
+     <double>9.325013953389089</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>-entidad : Entidad
+-control : int</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;cosntructor&gt;&gt;
++Gravedad(Entidad j, int aux) 
+&lt;&lt;comandos&gt;&gt;
++intersect() :boolean;
++run():void</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>GRAVEDAD</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>770.2818365978546</double>
+     <double>788.9184952214604</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>-accion:Coleccion de Imagenes;
+-temporal:boolean;
+-indice:entero;</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;constructor&gt;&gt;
++SpriteAnimado();
+&lt;&lt;comandos&gt;&gt;
++setearTemporal ( boolean b ):void;
++AgregarImagen( ImageIcon ii ):void;
+&lt;&lt;consultas&gt;&gt;
++obtenerImagen():Icon;
++obtenerImagen( int i ):Icon;
++obtenerLongitud():entero;
++esTemporal():boolean;
+
+
+
+	
+</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>SPRITE ANIMADO</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>375.0538238691624</double>
+     <double>945.4743135546946</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>-label:JLabel;
+-entidad :Entidad;
+-contro:int</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;constructor&gt;&gt;
++Animada(Mario m);
+&lt;&lt;comando&gt;&gt;
++run():void;</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>ANIMADA</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>94.42640687119284</double>
+     <double>788.1778489984129</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>+imagen : ImageIcon
++sorpresa : boolean
++item : int
++panel : JPanel
++items : Coleccion de Item
++piso : Coleccion de Entidad
++objetos : Coleccion de Entidad
++jugador : Mario
++points : JLabel
++vidas : JLabel</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;constructor&gt;&gt;
++PiedraIrrompible(int i, int j, int item, JPanel panel,
+			Coleccion de Items items, Coleccion de Entidad piso,
+			Coleccion de Entidad objetos,Coleccion de Malo malos, Mario jugador, JLabel p,JLabel vidas)
+&lt;&lt;Consultas&gt;&gt;
++tieneItem():boolean
++sacarItem():Item</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>PIEDRA IRROMPIBLE
+</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>1326.2475972097238</double>
+     <double>630.4849456753311</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>-imagen:Imagen;</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;constructor&gt;&gt;
++Tubo(int i,int j,int parte);</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>TUBO</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>1896.3836029426986</double>
+     <double>483.22983872133716</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string> jugador Mario</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;constructor&gt;&gt;
++Cuadrado(int x,int y);
+&lt;&lt;comandos&gt;&gt;
++setPosicion(int x,int y):void;
+&lt;&lt;consultas&gt;&gt;
++colisionaPorDerecha(Cuadrado c):boolean;
++colisionaPorIzquierda(Cuadrado c):boolean;
++colisionaPorAbajo(Cuadrado c):boolean;
++colisionaPorArriba(Cuadrado c):boolean;</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>CUADRADO</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>619.2491408358952</double>
+     <double>10.21652095504627</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>&lt;&lt;Constructor&gt;&gt;
++PanelDetalles()</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;Comandos&gt;&gt;
++paint( g:Graphics):void
+</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>PanelDetalles</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>561.7188053894811</double>
+     <double>561.7188053894812</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>- Mario jugador;
+- disparo:Disparo;
+-panel :Jpanel;</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;Constructor&gt;&gt;
++BolaDeFuego( jug:Mario, o:Coleccion de Entidad,e:Coleccion de Malo,p:JPanel)
+&lt;&lt;Comandos&gt;&gt;
++desaparecer():void
+</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>BolaDeFuego</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>257.10074275424967</double>
+     <double>377.9047948989175</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>enemigos:Coleccion de Malo</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;Constructor&gt;&gt;
++ Bomba(int i, int j, JLabel puntos, JLabel vidas,
+			Coleccion de Malo enemigos, Mario jugador) 
+&lt;&lt;Comandos&gt;&gt;
++accion():void</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>Bomba</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>1021.3108025847675</double>
+     <double>439.612031043085</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>-inteligencia:MovimientoArtificial ;
+	private  gravedad:Gravedad;</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;Constructor&gt;&gt;
++ Estrella(int x,int y,Coleccion de Entidad o,Coleccion de Entidad p,Mario player,JLabel puntos)
+&lt;&lt;Comandos&gt;&gt;
++accion():void</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>Estrella</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>241.09895718514878</double>
+     <double>232.69351141225576</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>-jugador:Mario</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;Constructor&gt;&gt;
++ Flor(int i,int j,Mario player,JLabel puntos,JLabel vidas)
+&lt;&lt;Comandos&gt;&gt;
++accion():void</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>Flor</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>1403.8889421057163</double>
+     <double>506.26914934129707</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>-  inteligencia:MovimientoArtificial
+</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;Constructor&gt;&gt;
++ Goomba(int i,int j,Coleccion de Entidad o,Coleccion de Entidad piso,Coleccion de BolaDeFuego disparos,Coleccion de Entidad,Mario jug,JLabel p){
+&lt;&lt;Comandos&gt;&gt;
++matar():void
++morir():void
++morir_disparo():void</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>Goomba</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>1377.5078495220596</double>
+     <double>38.949278513829086</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;Constructor&gt;&gt;
++ Hongo(int x,int y,Coleccion de Entidad o,Coleccion de Entidad p,Mario player,JLabel puntos)
+&lt;&lt;Comandos&gt;&gt;
++accion():void</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>Hongo</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>1530.4314757617603</double>
+     <double>371.6762155421418</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>-  inteligencia:MovimientoArtificial
+-  gravedad:Gravedad</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;Constructor&gt;&gt;
++ HongoVida(int x,int y,Coleccion de Entidad o,Coleccion de Entidad p,Mario player,JLabel puntos)
+&lt;&lt;Comandos&gt;&gt;
++accion():void</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>HongoVida</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>1475.8064565694037</double>
+     <double>1283.7100400220666</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>#  jugador:Mario
+# fueAgarrado:boolean
+#  inteligencia:MovimientoArtificial
+#  gravedad:Gravedad
+#  puntos:JLabel
+#  vidas:JLabel</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;Comandos&gt;&gt;
++accion():void *
++destruir():void
++setObjetos(Coleccion de Entidad o):void
++setPiso(Coleccion de Entidad p):void
++setJugador(Mario player):void
+&lt;&lt;Consultas&gt;&gt;
++fueAgarrado():boolean
++getJugador():Mario
+
+</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>Item*</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>1518.9474759797197</double>
+     <double>957.7067559361393</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>-SpriteAnimado:derecha 
+-SpriteAnimado:izquierda 
+-SpriteAnimado:actual 
+-Animada: movimiento 
+-boolean:fueGolpeada 
+-MovimientoArtificial:inteligencia </string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;Constructor&gt;&gt;
++ KoopaTroopa(int i, int j, Coleccion de Entidad o,Coleccion de Entidad piso,
+			Coleccion de BolaDeFuego disparos, Coleccion de Entidad limitadores,
+			Mario jug, JLabel p)
+&lt;&lt;Comandos&gt;&gt;
++derecha():void
++izquierda():void
++matar():void
++morir():void
++morir_disparo():void
+&lt;&lt;Consultas&gt;&gt;
++getActual():SpriteAnimado
++fueGolpeada():Boolean</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>KOOPA TROOPA</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>862.3891455413868</double>
+     <double>1004.2488558665323</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;Constructor&gt;&gt;
++ Limitador(int i,int j)</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>Limitador</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>477.6291638641097</double>
+     <double>802.2151801520436</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string> Mario:jugador
+ JLabel:puntos
+disparos:Coleccion de BolaDeFuego
+limitadores:Coleccion de Entidad</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;Comandos&gt;&gt;
++morir():void
++morir_disparo():void
++matar():void
+&lt;&lt;Consultas&gt;&gt;
++getJugador():Mario
++getDisparos():Coleccion de BolaDeFuego
++getLimitadores():Coleccion de Entidad
+</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>Malo*</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>1946.1627738587683</double>
+     <double>608.4597905848254</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>-points : JLabel</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>+ Moneda(int i,int j,JLabel p)
+&lt;&lt;Comandos&gt;&gt;
++run():void
++accion():void</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>Moneda</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>1905.4712769649168</double>
+     <double>1109.983268134903</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>#bloques : Coleccion de Entidad
+#malos : Coleccion de Malo
+#piso : Coleccion de Entidad
+#disparos : Coleccion de BolaDeFuego
+#limitadores : Coleccion de Entidad
+#jugador : Mario
+#puntos : JLabel
+#vidas : JLabel
+#personajes : JPanel
+#items : Coleccion de Item</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>public Generador(Mario jug, Coleccion de Entidad o, Coleccion de Malo m,
+			Coleccion de Entidad p, Coleccion de Item i,Coleccion de BolaDeFuego disparos,Coleccion de Entidad lim,JPanel per,
+			JLabel points,JLabel vidas)
+&lt;&lt;Comandos&gt;&gt;
++nivel1():void
++crearTuboChico(int x, int y):void
++crearTuboGrande(int x, int y):void
++crearBloque(int x, int y):void
++crearPiso():void
++crearBloqueSorpresa(int x, int y , int i):void
++crearGoomba(int x, int y):void
++crearKoopaTroopa(int x, int y):void
++crearLimitador(int x, int y):void</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>Generador</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>14.270485380032653</double>
+     <double>1258.1811276728788</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>-jugador : Mario
+-objetos : Coleccion de Entidad
+-enemigos : Coleccion de Malo
+-bola : BolaDeFuego
+-direccion : int</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;Constructor&gt;&gt;
++ Disparo(Mario jug, Coleccion de Entidad o, Coleccion de Malo e, int dir,
+			BolaDeFuego bola)
+&lt;&lt;Comandos&gt;&gt;
++run():void</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>Disparo</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>1105.9626169525304</double>
+     <double>720.6595116916488</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>-entidad : Entidad
+-control : int</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;Constructor&gt;&gt;
++ MovimientoArtificial(Entidad m, int aux)
+&lt;&lt;Comandos&gt;&gt;
++run():void</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>MovimientoArtificial</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>264.003979530604</double>
+     <double>623.1445282614256</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>-panel : JPanel
+-enemigos : JPanel
+-tecla : KeyEvent
+-jugador : Mario
+-gravedad : Gravedad</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;Consturctor&gt;&gt;
++ MovimientoManual(JPanel enemigos, JPanel p, KeyEvent t, Mario j,
+			Gravedad g)
+&lt;&lt;Comandos&gt;&gt;
++run():void</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>MovimientoManual</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>910.9326500920841</double>
+     <double>632.6581851814475</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>-gravity : Gravedad
+-jugador : Mario
+-tieneQueCrecer : boolean
+-tieneQueGanarVida : boolean
+-tieneQueserPoderoso : boolean</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>&lt;&lt;Constructor&gt;&gt;
++Salto(Gravedad g,Mario m)
+&lt;&lt;Comandos&gt;&gt;
++run():void</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>Salto</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>83.24449805019046</double>
+     <double>511.35905945116997</double>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
