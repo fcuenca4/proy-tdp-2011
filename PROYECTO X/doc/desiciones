@@ -1,0 +1,11 @@
+DESICIONES DE DISEÑO:
+
+-La clase limitador:la creamos con el fin de evitar tener que ponerle una gravedad a cada enemigo y que quede muy pesado el programa.Cuando necesito crear un enemigo sobre alguna plataforma,lo creo con sus respectivos limitadores,estos lo hacen revotar.
+
+-Panel Detalles: creamos una imagen y la pegamos de fondo,luego hicimos coincidir los graficos,con la logica.En la imagen ponemos las cosas que son estaticas,es decir que no se mueven y que nunca van a cambiar de estado (nubes,tubos,piso,pozos)
+
+-Los pozos : no son creados explìcitamente,sino que hay partes en los que se crear el piso que pegamos "saltos",es decir, no creamos piso.Asi representamos un pozo.
+
+-Las colisiones : cada entidad posee un Borde el cual es un cuadrado que rodea a la entidad con su respectivo ancho y alto,mediante unos cálculos y sabiendo donde estan las demas entidades determino si colisionan entre si o no.
+
+-Cada entidad, a no ser que no lo necesite, conoce la posicion de todas las demas entidades del juego (enemigos,items,objetos,pozos,mario) con el fin de evitar tener que pasar tantos parámetros en otros constructores,por ejemplo los de la inteligencia.
